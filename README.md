@@ -1,15 +1,18 @@
-# Personal Portfolio
+# Website Personal Portofolio 
 
 [![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)](#)
 [![Django](https://img.shields.io/badge/Django-%23092E20.svg?logo=django&logoColor=white)](#)
 
-Website ini merupakan portfolio pribadi saya yang berisi tentang informasi diri saya.
+### Perkenalkan saya Fachri Trisandi
+Website ini akan menjadi portfolio pribadi saya yang berisi informasi diri saya yang akan berkembang seakan jalannya waktu perkuliahan.
 
-## Ada apa saja di website ini?
-
+## Ada apa di website ini?
 - Portfolio saya
 
-## Cara menjalankan project
+# Praktikum 1
+Di Praktikum 1 ini saya melakukan
+
+## Cara menjalankan repository
 
 1. Clone project
 
@@ -20,5 +23,7 @@ git clone https://github.com/Fachri-T/2311102441001_Fachri-Trisandi_Django.git
 2. Jalankan project
 
 ```commandline
-python3 manage.py runserver
+python manage.py runserver
 ```
+
+# Praktikum 2
