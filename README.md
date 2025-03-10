@@ -10,7 +10,7 @@ Website ini akan menjadi portfolio pribadi saya yang berisi informasi diri saya 
 - Portfolio saya
 
 # Praktikum 1
-Di Praktikum 1 ini saya melakukan
+Di Praktikum ini saya melakukan
 
 ## Cara menjalankan repository
 
@@ -27,3 +27,10 @@ python manage.py runserver
 ```
 
 # Praktikum 2
+Di Praktikum ini saya melakukan
+- Memindahkan file main
+- Menambahkan static admin
+- Menambahkan file home.html
+- Menambahkan file about.html
+- Update setting.py
+- Update urls.py
