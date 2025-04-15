@@ -67,3 +67,6 @@ python manage.py migrate
 ```commandline
 pip install pillow
 ```
+
+# Praktikum 5
+- Menambahkan Template

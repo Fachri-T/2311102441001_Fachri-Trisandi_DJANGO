@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 
 def home(request):
-    template_name = 'home.html'
+    template_name = 'halaman/index.html'
     context = {
         'tittle': 'my home',
         'welcome': 'welcome my home',
