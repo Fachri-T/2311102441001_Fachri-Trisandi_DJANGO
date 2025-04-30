@@ -5,7 +5,7 @@ from berita.models import Artikel, Kategori
 admin.site.register(Kategori)
 
 class ArtikelAdmin(admin.ModelAdmin):
-    list_display = ['judul', 'kategori', 'author']
-    search_fields = ['judul']
+    list_display = ['nama', 'speksifikasi']
+    search_fields = ['nama']
 
 admin.site.register(Artikel, ArtikelAdmin)

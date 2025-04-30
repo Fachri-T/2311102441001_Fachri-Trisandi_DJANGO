@@ -1,29 +1,162 @@
-  <header>
-    <div class="page-header min-vh-85">
-      <div>
-        <img class="position-absolute fixed-top ms-auto w-50 h-100 z-index-0 d-none d-sm-none d-md-block border-radius-section border-top-end-radius-0 border-top-start-radius-0 border-bottom-end-radius-0" src="https://img.antaranews.com/cache/1200x800/2023/01/14/smoke-2636848_1920.jpg.webp" alt="image" loading="lazy">
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 d-flex">
-            <div class="card card-body blur text-md-start text-center px-sm-5 shadow-lg mt-sm-5 py-sm-5">
-              <h2 class="text-dark mb-0">WARNING: This product contains nicotine.
-Nicotine is an addictive chemical.</h2>
-              <div class="buttons">
-                <button type="button" class="btn btn-rounded bg-gradient-primary mt-4">Contact Us</button>
-                <button type="button" class="btn btn-rounded btn-outline-secondary mt-4 ms-2">Read More</button>
-              </div>
+{% load static %}
 
-              <div class="row mt-2">
-                <div class="col-md-3 col-6 p-0">
-                  <img class="w-50" src="static/halaman/assets/img/logos/gray-logos/lv.png" alt="logo">
-
-                </div>
-                </div>
-              </div>
+<div class="top__header pt-30 pb-30">
+    <div class="container">
+        <div class="top__wrapper">
+            <a href="{% static 'index.html' %" class="main__logo">
+                <img src="{% static 'halaman/assets/images/logo/logo.svg' %}" alt="logo__image">
+            </a>
+            <div class="search__wrp">
+                <input placeholder="Search for" aria-label="Search">
+                <button><i class="fa-solid fa-search"></i></button>
             </div>
-          </div>
+            <div class="account__wrap">
+                <div class="account d-flex align-items-center">
+                    <div class="user__icon">
+                        <a href="#0">
+                            <i class="fa-regular fa-user"></i>
+                        </a>
+                    </div>
+                    <a href="#0" class="acc__cont">
+                            <span>
+                                My Account
+                            </span>
+                    </a>
+                </div>
+                <div class="flag__wrap">
+                    <div class="flag">
+                        <img src="{% static 'halaman/assets/images/flag/us.png' %}" alt="flag">
+                    </div>
+                    <select name="flag">
+                        <option value="0">
+                            Usa
+                        </option>
+                        <option value="1">
+                            Canada
+                        </option>
+                        <option value="2">
+                            Australia
+                        </option>
+                        <option value="3">
+                            Germany
+                        </option>
+                    </select>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </header>
+</div>
+<header class="header-section">
+    <div class="container">
+        <div class="header-wrapper">
+            <div class="header-bar d-lg-none">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="main-menu">
+                <li>
+                    <a href="#0">Home <i class="fa-regular fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="subtwohober">
+                            <a href="{% static 'index.html' %}">
+                                Home One
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'index-light.html' %}">
+                                Home One Light
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'index-2.html' %}">
+                                Home Two
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'index-2-light.html' %}">
+                                Home Two Light
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% static 'about.html' %}">About Us</a>
+                </li>
+                <li>
+                    <a href="#0">Pages <i class="fa-regular fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="subtwohober">
+                            <a href="{% static 'shop.html' %}">
+                                Shop Leftbar
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'shop-2.html' %}">
+                                Shop Rightbar
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'shop-single.html' %}">
+                                Shop Single
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'cart.html' %}">
+                                Cart Page
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'checkout.html' %}">
+                                Checkout Page
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'register.html' %}">
+                                Register
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'login.html' %}">
+                                Login
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'error.html' %}">
+                                404 Error
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#0">Blog <i class="fa-regular fa-angle-down"></i></a>
+                    <ul class="sub-menu">
+                        <li class="subtwohober">
+                            <a href="{% static 'blog.html' %}">
+                                Blog Stander
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'blog-grid.html' %}">
+                                Blog Grid
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'blog-list.html' %}">
+                                Blog List
+                            </a>
+                        </li>
+                        <li class="subtwohober">
+                            <a href="{% static 'blog-single.html' %}">
+                                Blog Single
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% static 'contact.html' %}">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
