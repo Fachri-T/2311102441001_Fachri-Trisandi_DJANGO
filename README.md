@@ -70,3 +70,11 @@ pip install pillow
 
 # Praktikum 5
 - Menambahkan Template
+
+# Praktikum 6
+- Debugging 
+
+# Praktikum 7 
+- Regex & CRUD
+
+# Praktikum 8 
