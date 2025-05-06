@@ -1,0 +1,98 @@
+{% extends 'halaman/base.html' %}
+
+{% block content %}
+
+<body>
+
+    <!-- Preloader area start -->
+<!--    <div class="loading">-->
+<!--        <span class="text-capitalize">L</span>-->
+<!--        <span>o</span>-->
+<!--        <span>a</span>-->
+<!--        <span>d</span>-->
+<!--        <span>i</span>-->
+<!--        <span>n</span>-->
+<!--        <span>g</span>-->
+<!--    </div>-->
+
+<!--    <div id="preloader">-->
+<!--    </div>-->
+    <!-- Preloader area end -->
+
+    <!-- Mouse cursor area start here -->
+    <div class="mouse-cursor cursor-outer"></div>
+    <div class="mouse-cursor cursor-inner"></div>
+    <!-- Mouse cursor area end here -->
+
+
+    <main>
+        <!-- Page banner area start here -->
+        <section class="page-banner bg-image pt-130 pb-130" data-background="assets/images/banner/inner-banner.jpg">
+            <div class="container">
+                <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">Contact Us</h2>
+                <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
+                </div>
+            </div>
+        </section>
+        <!-- Page banner area end here -->
+
+        <!-- Contact form area start here -->
+        <section class="contact pt-130 pb-130">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="content radius-10 bg-image">
+                            <h2>Punya sesuatu dalam pikiran? <br>
+                                Ayo bicara.</h2>
+                            <p>Kepada kaum elit, tetapi Aku memberikan waktu yang cukup agar kerja keras dan rasa sakit yang hebat terjadi. Untuk minimalnya.</p>
+                            <div class="arry"><img src="assets/images/contact/arry.png" alt=""></div>
+                            <ul>
+                                <li><a href="https://www.google.com/maps/d/viewer?mid=1UZ57Drfs3SGrTgh6mrYjQktu6uY&amp;hl=en_US&amp;ll=18.672105000000013%2C105.68673800000003&amp;z=17"
+                                        target="_blank"><i class="fa-solid fa-location-dot"></i>Jln. M. Said</a>
+                                </li>
+                                <li><a href="tel:1-732-798-0976"><i class="fa-solid fa-phone-volume"></i>+62 831 909 302 25</a>
+                                </li>
+                                <li><a href="mailto:company.info@mail.com"><i
+                                            class="fa-solid fa-envelope"></i>FachriTrisandi97@gmail.com </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-area">
+                            <form action="#0">
+                                <input type="text" placeholder="Name">
+                                <input type="email" placeholder="Email">
+                                <select name="subject" id="subject">
+                                    <option value="0">Select Subject</option>
+                                    <option value="0">Account</option>
+                                    <option value="0">Service</option>
+                                    <option value="0">Pricing</option>
+                                    <option value="0">Support</option>
+                                </select>
+                                <textarea name="Your Review" id="massage" placeholder="Message..."></textarea>
+                                <div class="radio-btn mt-2">
+                                    <span></span>
+                                    <p>I accept your terms & conditions</p>
+                                </div>
+                                <button class="mt-40 btn-one"><span>Submit Now</span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact form area end here -->
+
+    </main>
+
+    <!-- Back to top area start here -->
+    <div class="scroll-up">
+        <svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Back to top area end here -->
+</body>
+
+</html>
+{% endblock %}

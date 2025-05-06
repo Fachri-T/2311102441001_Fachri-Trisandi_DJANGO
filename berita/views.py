@@ -57,7 +57,8 @@ def kategori_delete(request, id_kategori):
     try:
         Kategori.objects.get(id=id_kategori).delete()
     except:
-        return redirect(kategori_list)
+        pass
+    return redirect(kategori_list)
 
 
 def artikel_list(request):
@@ -88,6 +89,22 @@ def artikel_add(request):
     }
     return render(request, template_name, context)
 
+def artikel_update(request, id_artikel):
+    template_name = "dashboard/snip/artikel_update.html"
+    artikel = Artikel.objects.get(id = id_artikel)
+    if request.method == "POST":
+        forms = Katalogform(request.POST, request.FILES, instance=artikel)
+        if forms.is_valid():
+            pub = forms.save(commit=False)
+            pub.author = request.user
+            pub.save()
+            return redirect(artikel_list)
+    forms = Katalogform(instance=artikel)
+    context = {
+        'title': 'Tambah Artikel',
+        'artikel': forms
+    }
+    return render(request, template_name, context)
 
 def artikel_detail(request, id_artikel):
     template_name = "dashboard/snip/artikel_detail.html"
@@ -98,26 +115,11 @@ def artikel_detail(request, id_artikel):
     }
     return render(request, template_name, context)
 
-def artikel_update(request, id_artikel):
-    template_name = "dashboard/snip/artikel_forms.html"
-    artikel = Artikel.objects.get(id = id_artikel)
-    if request.method == "POST":
-        forms = Katalogform(request.POST, request.FILES, instance=artikel)
-        if forms.is_valid():
-            pub = forms.save(commit=False)
-            pub.author = request.user
-            pub.save()
-            return redirect(artikel)
-    forms = Katalogform(instance=artikel)
-    context = {
-        'title': 'Tambah Artikel',
-        'artikel': forms
-    }
-    return render(request, template_name, context)
+
 
 def artikel_delete(request, id_artikel):
     try:
         Artikel.objects.get(id=id_artikel).delete()
     except:
         pass    
-        return redirect(artikel_list)
+    return redirect(artikel_list)

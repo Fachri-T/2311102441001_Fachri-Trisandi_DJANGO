@@ -1,0 +1,119 @@
+{% extends 'halaman/base.html' %}
+
+{% block content %}
+<!-- Preloader area start -->
+<!--<div class="loading">-->
+<!--    <span class="text-capitalize">L</span>-->
+<!--    <span>o</span>-->
+<!--    <span>a</span>-->
+<!--    <span>d</span>-->
+<!--    <span>i</span>-->
+<!--    <span>n</span>-->
+<!--    <span>g</span>-->
+<!--</div>-->
+
+<!--<div id="preloader">-->
+<!--</div>-->
+<!-- Preloader area end -->
+
+<!-- Mouse cursor area start here -->
+<div class="mouse-cursor cursor-outer"></div>
+<div class="mouse-cursor cursor-inner"></div>
+<!-- Mouse cursor area end here -->
+
+<!-- Page banner area start here -->
+<main>
+
+    <section class="page-banner bg-image pt-130 pb-130" data-background="assets/images/banner/inner-banner.jpg">
+        <div class="container">
+            <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">Shop Details</h2>
+            <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
+            </div>
+        </div>
+    </section>
+    <!-- Page banner area end here -->
+
+    <!-- Shop single area start here -->
+    <div class="pb-20 bor-bottom shop-page-wrp d-flex justify-content-between align-items-center mb-65">
+        <p class="fw-600">Showing 1–12 of 17 results</p>
+        <div class="short">
+            <select name="shortList" id="shortList">
+                <option value="0">Short by popularity</option>
+                <option value="1">E-Cigarette</option>
+                <option value="2">POP Extra</option>
+                <option value="3">Charger Kit</option>
+                <option value="4">100ml Nic</option>
+                <option value="5">Salt Juice</option>
+            </select>
+        </div>
+    </div>
+    <section class="shop-single pt-130 pb-130">
+        <div class="container">
+            <!-- product-details area start here -->
+            <div class="product-details-single pb-40">
+                <div class="row g-4">
+                    <div class="col-lg-5">
+                        <div class="image img">
+                            <div class="swiper shop-single-slide">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        {% if artikel.thumbmail %}
+                                        <img class="font-image" src="{{ artikel.thumbmail.url }}">
+                                        {% else %}
+                                        <img src="{% url 'detail_artikel' artikel.id %}" alt="image">
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="content h24">
+                            <h3 class="pb-2 primary-color">{{ artikel.nama }}</h3>
+                            <div class="star primary-color pb-2">
+                                <span><i class="fa-solid fa-star sm-font"></i></span>
+                                <span><i class="fa-solid fa-star sm-font"></i></span>
+                                <span><i class="fa-solid fa-star sm-font"></i></span>
+                                <span><i class="fa-solid fa-star sm-font"></i></span>
+                                <span><i class="fa-solid fa-star-half-stroke sm-font"></i></span>
+                            </div>
+                            <h2 class="pb-3">Rp. 500.000</h2>
+                            <h4 class="pb-2 primary-color">Dekripsi Produk</h4>
+                            <p class="text-justify mb-10">{{ artikel.speksifikasi }}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="details-area">
+                                    <div class="category flex-wrap mt-4 d-flex py-3 bor-top bor-bottom">
+                                        <h4 class="pe-3">Kategori :</h4>
+                                        <a href="#0" class="primary-hover">{{ artikel.kategori }}</a>
+                                    </div>
+                                    <div class="cart-wrp py-4">
+                                        <div class="cart-quantity">
+                                            <form id='myform' method='POST' class='quantity' action='#'>
+                                                <input type='button' value='-' class='qtyminus minus'>
+                                                <input type='text' name='quantity' value='0' class='qty'>
+                                                <input type='button' value='+' class='qtyplus plus'>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <a href="#0" class="d-block text-center btn-two mt-40"><span><i
+                                            class="fa-solid fa-basket-shopping pe-2"></i>Masukkan Keranjang</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Back to top area start here -->
+<div class="scroll-up">
+    <svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
+    </svg>
+</div>
+<!-- Back to top area end here -->
+{% endblock %}
