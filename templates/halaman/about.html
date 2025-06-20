@@ -1,88 +1,63 @@
-{% extends 'halaman/base.html' %}
+{% extends "halaman/index.html" %}
+{% load static %}
 
 {% block content %}
-<body>
-<!-- Preloader area start -->
-<!--    <div class="loading">-->
-<!--        <span class="text-capitalize">L</span>-->
-<!--        <span>o</span>-->
-<!--        <span>a</span>-->
-<!--        <span>d</span>-->
-<!--        <span>i</span>-->
-<!--        <span>n</span>-->
-<!--        <span>g</span>-->
-<!--    </div>-->
-
-<!--    <div id="preloader">-->
-<!--    </div>-->
-<!-- Preloader area end -->
-
-<!-- Mouse cursor area start here -->
-<div class="mouse-cursor cursor-outer"></div>
-<div class="mouse-cursor cursor-inner"></div>
-<!-- Mouse cursor area end here -->
-
-
-<main>
-    <!-- Page banner area start here -->
-    <section class="page-banner bg-image pt-130 pb-130" data-background="assets/images/banner/inner-banner.jpg">
-        <div class="container">
-            <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">About Us</h2>
-            <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
+<header class="bg-gradient-dark">
+    <div class="page-header min-vh-75" style="background-image: url('{% static "halaman/assets/img/bg10.jpg" %}');">
+      <span class="mask bg-gradient-dark opacity-6"></span>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center mx-auto my-auto">
+            <h1 class="text-white fadeIn2 fadeInBottom">About us <span class="text-white" id="typed"></span></h1>
+            </h1>
             </div>
-        </div>
-    </section>
-    <!-- Page banner area end here -->
-
-    <!-- About area start here -->
-    <section class="discount-area about-area pt-130">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="image position-relative">
-                        <div class="video__btn-wrp">
-                            <div class="video-btn video-pulse">
-                                <a class="video-popup secondary-bg"
-                                   href="https://youtu.be/b1DLYwiO-AA?si=jX9Ra2nCPbyTYLno"><i
-                                        class="fa-solid fa-play"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="discount__item pl-30">
-                        <div class="section-header">
-                            <div class="section-title-icon">
-                                <span class="title-icon mr-10"></span>
-                                <h2>Kami Hadir Untuk Meningkatkan Kehidupan Modern Anda</h2>
-                            </div>
-                            <p class="mt-30 mb-55">Jual secara global dalam hitungan menit dengan mata uang dan bahasa
-                                lokal, dan
-                                <br>
-                                pengalaman dalam setiap hal pasar. hanya berbagai vaping
-                                produk secara global dengan mata uang lokal dan bahasa secara global
-                                dengan mata uang lokal bahasa Lorem ipsum dolor sit amet consectetur
-                                elit adipik. Latihan yang tidak perlu dilakukan hanya karena ipsum diasumsikan tidak ada
-                                praesentium blanditiis tempora consequuntur cum beatae saepe facere quis dolore
-                                bermartabat nihil.
-                            </p>
-                            <a class="btn-one" href="contact.html"><span>More About us</span></a>
-                        </div>
-                    </div>
-                </div>
+            <div class="d-flex justify-content-center fadeIn2 fadeInBottom">
+              <a href="javascript:;"><i class="fab fa-facebook text-lg text-white me-4"></i></a>
+              <a href="javascript:;"><i class="fab fa-instagram text-lg text-white me-4"></i></a>
+              <a href="javascript:;"><i class="fab fa-twitter text-lg text-white me-4"></i></a>
+              <a href="javascript:;"><i class="fab fa-google-plus text-lg text-white"></i></a>
             </div>
+          </div>
         </div>
-    </section>
-    <!-- About area end here -->
+      </div>
+    </div>
+  </header>
+<section class="pb-5 position-relative bg-gradient-dark mx-n3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 text-start mb-5 mt-5">
+          <h3 class="text-white z-index-1 position-relative">The Executive Team</h3>
+          <p class="text-white opacity-8 mb-0">There’s nothing I really wanted to do in life that I wasn’t able to get good at. That’s my skill.</p>
+        </div>
+      </div>
+        <div class="col-lg-6 col-12">
+          <div class="card card-profile mt-lg-4 mt-5">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                <a href="javascript:;">
+                  <div class="p-3 pe-md-0">
+                    <img class="w-100 border-radius-md shadow-lg" src="{% static 'halaman/assets/img/f.jpg' %}" alt="image">
+                  </div>
+                </a>
+              </div>
+              <div class="col-lg-8 col-md-6 col-12 my-auto">
+                <div class="card-body ps-lg-0">
+                  <h5 class="mb-0">Fachri Trisandi</h5>
+                  <h6 class="text-info">Angler</h6>
+                  <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an art.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+              </div>
 
-</main>
+            </div>
+          </div>
+        </div>
 
-<!-- Back to top area start here -->
-<div class="scroll-up">
-    <svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/>
-    </svg>
-</div>
-<!-- Back to top area end here -->
-</body>
+      </div>
+    </div>
+  </section>
 {% endblock %}

@@ -1,58 +1,79 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required, user_passes_test
+
 from berita.models import Kategori, Artikel
-from berita.forms import Katalogform
+from berita.forms import ArtikelForm
 
 
 # Create your views here.
+def is_operator(user):
+    if user.groups.filter(name='Operator').exists():
+        return True
+    else:
+        return False
+
+
+@login_required
 def dashboard(request):
     template_name = "dashboard/index.html"
     context = {
-        'title': 'Dashoard'
+        'title': 'halaman dashboard'
     }
     return render(request, template_name, context)
 
 
+@login_required
+@user_passes_test(is_operator, login_url='/authentication/login')
 def kategori_list(request):
-    template_name = "dashboard/snip/kategori.html"
+    template_name = "dashboard/snippets/kategori_list.html"
     kategori = Kategori.objects.all()
     context = {
-        'title': 'Kategori',
-        'kategori': kategori
+        'title': 'halaman kategori',
+        'kategori': kategori,
     }
     return render(request, template_name, context)
 
 
+@login_required
+@user_passes_test(is_operator, login_url='/authentication/login')
 def kategori_add(request):
-    template_name = "dashboard/snip/kategori_add.html"
+    template_name = "dashboard/snippets/kategori_add.html"
     if request.method == "POST":
         nama_input = request.POST.get('nama_kategori')
         Kategori.objects.create(
-            nama=nama_input)
+            nama=nama_input
+        )
         return redirect(kategori_list)
+
     context = {
-        'title': 'Add',
+        'title': 'tambah kategori',
     }
     return render(request, template_name, context)
 
 
+@login_required
+@user_passes_test(is_operator, login_url='/authentication/login')
 def kategori_update(request, id_kategori):
-    template_name = "dashboard/snip/kategori_update.html"
+    template_name = "dashboard/snippets/kategori_update.html"
     try:
         kategori = Kategori.objects.get(id=id_kategori)
     except:
-        return redirect(kategori_list())
+        return redirect(kategori_list)
+
     if request.method == "POST":
         nama_input = request.POST.get('nama_kategori')
         kategori.nama = nama_input
         kategori.save()
         return redirect(kategori_list)
     context = {
-        'title': 'Update',
+        'title': 'tambah kategori',
         'kategori': kategori
     }
     return render(request, template_name, context)
 
 
+@login_required
+@user_passes_test(is_operator, login_url='/autentifikasi/login')
 def kategori_delete(request, id_kategori):
     try:
         Kategori.objects.get(id=id_kategori).delete()
@@ -61,65 +82,93 @@ def kategori_delete(request, id_kategori):
     return redirect(kategori_list)
 
 
+# Artikel
+
+@login_required
 def artikel_list(request):
-    template_name = "dashboard/snip/artikel.html"
-    artikel = Artikel.objects.all()
+    template_name = "dashboard/snippets/artikel_list.html"
+
+    if request.user.groups.filter(name='Operator'):
+        artikel = Artikel.objects.all()
+    else:
+        artikel = Artikel.objects.filter(author=request.user)
+
     context = {
-        'title': 'Daftar Katalog',
+        'title': 'daftarartikel',
         'artikel': artikel
     }
     return render(request, template_name, context)
 
 
+@login_required
 def artikel_add(request):
-    template_name = "dashboard/snip/artikel_forms.html"
+    template_name = "dashboard/snippets/artikel_forms.html"
     if request.method == "POST":
-        forms = Katalogform(request.POST, request.FILES)
+        forms = ArtikelForm(request.POST, request.FILES)
         if forms.is_valid():
             pub = forms.save(commit=False)
             pub.author = request.user
             pub.save()
             return redirect(artikel_list)
         else:
-            print(forms.error_class)
-    forms = Katalogform()
+            print(forms.errors)
+
+    forms = ArtikelForm()
     context = {
-        'title': 'Daftar Katalog',
-        'form': forms
+        'title': 'tambah artikel',
+        'forms': forms
     }
     return render(request, template_name, context)
 
-def artikel_update(request, id_artikel):
-    template_name = "dashboard/snip/artikel_update.html"
-    artikel = Artikel.objects.get(id = id_artikel)
-    if request.method == "POST":
-        forms = Katalogform(request.POST, request.FILES, instance=artikel)
-        if forms.is_valid():
-            pub = forms.save(commit=False)
-            pub.author = request.user
-            pub.save()
-            return redirect(artikel_list)
-    forms = Katalogform(instance=artikel)
-    context = {
-        'title': 'Tambah Artikel',
-        'artikel': forms
-    }
-    return render(request, template_name, context)
 
+@login_required
 def artikel_detail(request, id_artikel):
-    template_name = "dashboard/snip/artikel_detail.html"
+    template_name = "dashboard/snippets/artikel_detail.html"
     artikel = Artikel.objects.get(id=id_artikel)
     context = {
-        'title': artikel.nama,
+        'title': artikel.judul,
         'artikel': artikel
     }
     return render(request, template_name, context)
 
 
+@login_required
+def artikel_update(request, id_artikel):
+    template_name = "dashboard/snippets/artikel_forms.html"
+    artikel = Artikel.objects.get(id=id_artikel)
 
+    if request.user.groups.filter(name='Operator'):
+        artikel = Artikel.objects.all()
+    else:
+        if artikel.author != request.user:
+            return redirect('/')
+
+    if request.method == "POST":
+        forms = ArtikelForm(request.POST, request.FILES, instance=artikel)
+        if forms.is_valid():
+            pub = forms.save(commit=False)
+            pub.author = request.user
+            pub.save()
+            return redirect(artikel_list)
+
+    forms = ArtikelForm(instance=artikel)
+    context = {
+        'title': 'tambah kategori',
+        'forms': forms
+    }
+    return render(request, template_name, context)
+
+
+@login_required
 def artikel_delete(request, id_artikel):
     try:
-        Artikel.objects.get(id=id_artikel).delete()
+        artikel = Artikel.objects.get(id=id_artikel)
+        if request.user.groups.filter(name='Operator'):
+            pass
+        else:
+            if artikel.author != request.user:
+                return redirect('/')
+        artikel.delete()
     except:
-        pass    
+        pass
     return redirect(artikel_list)

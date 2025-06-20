@@ -1,22 +1,26 @@
 from django import forms
+
 from berita.models import Artikel
 
-class Katalogform(forms.ModelForm):
 
+class ArtikelForm(forms.ModelForm):
     class Meta:
         model = Artikel
-        fields = ( 'nama', 'speksifikasi', 'kategori', 'thumbmail')
+        fields = ('judul', 'isi', 'kategori', 'thumbnail')
         widgets = {
-            "nama" : forms.TextInput(
-                attrs = {
-                    'class' : 'form-control',
-                }),
-            "speksifikasi" : forms.Textarea(
-                attrs = {
+            "judul": forms.TextInput(
+                attrs={
                     'class': 'form-control',
-                }),
-            "kategori" : forms.Select(
-                attrs = {
+                }
+            ),
+            "isi": forms.Textarea(
+                attrs={
                     'class': 'form-control',
-                }),
+                }
+            ),
+            "kategori": forms.Select(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
         }
